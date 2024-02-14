@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тестовое</title>
+  <script defer src="data.js"></script>
+  <script defer src="index.js"></script>
+</head>
+<style>
+  ul, li {
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+    list-style: none;
+  }
+  .list {
+    position: relative;
+    cursor: pointer;
+  }
+  .list::before {
+    content: '';
+    position: absolute;
+    border-right: 2px solid #999;
+    border-bottom: 2px solid #999;
+    width: 6px;
+    height: 6px;
+    top: 4px;
+    left: -15px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in-out;
+  }
+  .list > ul {
+    transform: scaleY(0);
+    height: 0;
+  }
+  .active.list > ul {
+    transform: scaleY(1);
+    height: auto;
+  }
+  .active.list::before {
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    transform: rotate(45deg);
+  }
+</style>
+<body>
+  <div id="root"></div>
+</body>
+</html>
